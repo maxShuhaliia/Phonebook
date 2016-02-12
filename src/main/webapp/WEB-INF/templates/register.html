@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+					xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Register</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="files/common.css" rel="stylesheet"/>
+  </head>
+  <body>  
+    <div class="container">   
+      <div class="centered">
+    		<form class="form-horizontal wrapperForm" role="form" action="registration/" th:object="${user}">   			 			
+                <h1>Registration form</h1> 
+	            <div id="errorsFromServer" th:if="${#fields.hasErrors('*')}">
+	    			<h4 for="ulErrors" class="errorMessage" >please fix the errors below:</h4>
+	    			<div>
+		                 <ul id="ulErrors" class="errorMessage" >
+		                 	<li th:each="err : ${#fields.errors('*')}" 
+		                 				th:text="${err}" ></li>
+		                 </ul>	
+	                 </div>
+	            </div>    
+                <div class="form-group">
+    				<label  for="" class="col-sm-2 control-label">Login</label>
+	                <div class="col-sm-10 inner-addon right-addon">
+	                    <i id="LoginIcon" class=""></i>  
+	                  		<input name="login" type="text" class="form-control" id="inputLogin" placeholder="login"
+	                  				th:field="*{login}" ></input>
+	                </div>
+                </div>
+                <div class="form-group"  >
+	                <label for="inputName" class="col-sm-2 control-label" >Name</label>
+		                <div class="col-sm-10 inner-addon right-addon">
+		                     <i id="nameIcon" class=""></i>  
+		                 	 <input name="firstName" type="text" class="form-control" id="inputName" placeholder="name"
+		                  				th:field="*{firstName}"/>
+		                </div>
+              	</div>
+	            <div class="form-group">
+	                <label for="inputSurname" class="col-sm-2 control-label">Surname</label>
+	                <div class="col-sm-10 inner-addon right-addon">
+	                     <i id="surnameIcon" class=""></i>  
+	                 	 <input name="surName" type="text" class="form-control" id="inputSurname" placeholder="surname"
+	                  			th:field="*{surName}"/>
+	                </div>
+	            </div>        
+	            <div class="form-group">
+	                <label for="inputMiddleName" class="col-sm-2 control-label">Middle Name</label>
+	                <div class="col-sm-10 inner-addon right-addon">
+	                     <i id="middleNameIcon" class=""></i>  
+	                 	 <input name="middleName" type="text" class="form-control" id="inputMiddleName" placeholder="middle name"
+	                  			th:field="*{middleName}"/>
+	                </div>
+	            </div>   
+	            <div class="form-group">
+	                <label for="inputPassword" class="col-sm-2 control-label ">Password</label>
+	                <div id="parent" class="col-sm-10 inner-addon right-addon">
+	                     <i id="passwordIcon" class=""></i>  
+	                  	 <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password"/>
+	                </div>
+	            </div>              
+              	<div class="form-group">
+	                <div class="col-sm-offset-2 col-sm-10">
+	                 	 <button type="submit" class="btn btn-success">Register</button>
+	                </div>
+              	</div>
+            </form>
+       </div>      
+      </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="files/validationRegister.js"></script>
+  </body>
+</html>

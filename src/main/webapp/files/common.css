@@ -1,0 +1,72 @@
+h1 {
+margin-left: 100px;
+margin-bottom: 20px;  
+color: green;
+}
+body{
+  background-color: antiquewhite;    
+}
+label {
+    white-space: pre;
+    color: green;
+    float: left;
+}
+
+.tooltip-inner{
+                white-space: pre;
+                background: red;
+                min-width: 250px;
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 10px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.error-icon { 
+    color: red;
+}
+
+.success-icon {
+    color : green;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto; 
+    width : 550px;
+    vertical-align: middle;
+}
+
+.wrapperForm {
+    background-color: aquamarine;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+
+.errorMessage{
+    color: red;
+}
+
+#errorsFromServer{
+	margin: 0 auto;
+    width:250px;
+}

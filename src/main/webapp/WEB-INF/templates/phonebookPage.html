@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico"/>
+    <title>Phone book</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="files/ie10-viewport-bug-workaround.css" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="files/navbar-static-top.css" rel="stylesheet"/>
+    <link href="files/phoneBook.css" rel="stylesheet"/>
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="files/ie-emulation-modes-warning.js"></script>
+    <link href="files/dialogForm.css" rel="stylesheet"/>
+    <link href="files/arrows.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top bgColor">
+        <div class="container ">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">Phone book</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav newContact">
+                    <li>
+                        <a href="#" class="buttonNewContact" > <i class="glyphicon glyphicon-plus"></i><label class="navBttons">new contact</label></a>
+                    </li>
+                    <li>
+                        <a href="#" class="buttonContactEdit" > <i class="glyphicon glyphicon-pencil"></i><label class="navBttons">edit</label></a>
+                    </li>
+                    <li>
+                        <a href="#" class="buttonDeleteContact"  > <i class="glyphicon glyphicon-trash"></i><label class="navBttons">delete</label></a>
+                    </li>
+                </ul>
+           <!--log out drop down menu-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/logout" class=""><label class="navBttons">Log out</label></a>
+                    </li>
+                </ul>
+                <!-- Sort by and Search -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown ">
+                       <a href="https://google.com.ua" class="dropdown-toggle" id="searchBy" data-toggle="dropdown" role="button" 
+                       					aria-haspopup="true" aria-expanded="false"><label id="labelSearchBy" 
+                       					class="navBttons">Search by first name</label><span class="caret"> </span></a>
+                        <ul class="dropdown-menu dropdown-menu-sort colorDropDown">
+                            <li id="firstNameSearchBy"><a href="">First name</a></li>
+                            <li id="lastNameSearchBy"><a href="">Last name</a></li>
+                            <li id="middleNameSearchBy"><a href="">Middle name</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <form class="navbar-form navbar-right">
+                            <input id="searchInput" type="text" class="form-control" placeholder="Search..."/>    
+                        </form>
+                    </li>
+
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+															<div id="typeArrow" th:class="${arrow}"></div >
+															<div id="activeColumn" th:class="${column}"></div>
+															<div id="searchByFromSession" th:class="${searchBy}"></div>
+															
+    <div class="container tableStyle">
+        <div class="table-responsive">
+            <table class="table table-stripped" >
+                <thead >
+                <tr class="row bgColorHeadTable">
+                    <th >
+                      <label>First name</label>  <span  id="fnameArrow" class="arrow glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span> 
+                    </th>
+                    <th>
+                        <label>Last name</label>  <span id="lnameArrow" class="arrow glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                    </th>
+                    <th>
+                        <label>Middle name</label>  <span id="mnameArrow" class="arrow glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                    </th>
+                    <th>
+                        <label>Mobile phone</label> <span id="mobileArrow" class="arrow glyphicon glyphicon-sort-by-attributes" aria-hidden="true"></span>
+                    </th>
+                    <th>
+                        <label>Home phone</label>
+                    </th>
+                    <th>
+                        <label>Address</label>
+                    </th>
+                    <th>
+                        <label>E-mail</label>
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody id="tBodyRows">
+                 
+                <tr th:id="${contact.contactId}" class="row pointer" th:each="contact : ${contacts}">
+						
+                    <td th:class="${contact.firstName}" >
+                        <label th:text="${contact.firstName}"></label>
+                    </td>
+                    <td th:class="${contact.lastName}">
+                        <label th:text="${contact.lastName}"></label>
+                    </td>
+                    <td th:class="${contact.middleName}">
+                        <label th:text="${contact.middleName}"></label>
+                    </td>
+                    <td th:class="${contact.mobilePhone}">
+                        <label th:text="${contact.mobilePhone}"></label>
+                    </td>
+                    <td th:class="${contact.homePhone}">
+                        <label th:text="${contact.homePhone}"></label>
+                    </td>
+                    <td th:class="${contact.address}">
+                        <label th:text="${contact.address}"></label>
+                    </td>
+                    <td th:class="${contact.email}">
+                        <label th:text="${contact.email}"></label>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <!--
+            -->
+        </div>
+    </div> <!-- /container -->
+</div>
+<div class="newContactForm" id="divContactForm">
+    <h2 id="headerForm" class="headerForm">new contact</h2>
+    <form id="contactForm" class="" role="menu" action="/addContact">
+        <label for="firsName"> First name </label>
+        <div class="form-group inner-addon right-addon">
+            <i id="firstNameIcon" class=""></i>
+            <input type="text" name="firstName" class="form-control" id="firsName" placeholder="First name"/>
+        </div>
+        <label for="lastName"> Last name </label>
+        <div class="form-group inner-addon right-addon">
+            <i id="lastNameIcon" class=""></i>
+            <input type="text" name="lastName" class="form-control" id="lastname" placeholder="Last name" />
+        </div>
+        <label for="middleName">  Middle name </label>
+        <div class="form-group inner-addon right-addon">
+            <i id="middleNameIcon" class=""></i>
+            <input type="text" name="middleName" class="form-control" id="middleName" placeholder="Middle name"/>
+        </div>
+        <label for="mobilePhone">
+            <i class="glyphicon glyphicon-earphone"></i> Mobile phone
+        </label>
+        <div class="form-group inner-addon right-addon">
+            <i id="mobilePhoneIcon" class=""></i>
+            <div class="user-phone">
+                <input type="tel" name="mobilePhone" class="form-control"
+                       id="mobilePhone" placeholder="+38 (0__)-___-__-__"/>
+            </div>
+        </div>
+        <label for="homePhone">
+            <i class=" glyphicon glyphicon-phone-alt"></i>  Home phone
+        </label>
+        <div class="form-group inner-addon right-addon">
+            <i id="homePhoneIcon" class=""></i>
+            <input type="tel" name="homePhone" class="form-control" id="homePhone" placeholder="Home Phone" />
+        </div>
+        <label for="address"> Address </label>
+        <div class="form-group inner-addon right-addon">
+            <i id="addressIcon" class=""></i>
+            <input type="text" name="address" class="form-control" id="address" placeholder="Address" />
+        </div>
+        <label for="email">  E-meil </label>
+        <div class="form-group inner-addon right-addon">
+            <i id="emailIcon" class=""></i>
+            <input type="email" name="email" class="form-control" id="email" placeholder="E-mail"/>
+        </div>
+        <button id="admitButtonCreate" type="submit" class="btn btn-success "><i class="glyphicon glyphicon-ok"></i>Ok</button>
+        <button id="cancelButtonCreate" type="button" value="Close" class="btn btn btn-danger"><i class="glyphicon glyphicon-remove"></i>Cancel</button>
+    </form>
+</div>
+<!-- dialog form for delete contact-->
+<div class="newContactForm deleteContactForm" id="deleteContactForm">
+    <h2 id="headerFormDelete" class="headerForm">Are you sure to delete this contact?"</h2>
+    <div id="deleteContact" class="" role="menu">
+        <button id="admitButtonDelete" type="submit" class="btn btn-success "><i class="glyphicon glyphicon-ok"></i>Yes</button>
+        <button type="button" id="cancelButtonDelete"  class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>No</button>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="files/masked_input_plugin.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="files/validationPhoneBook.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="files/ie10-viewport-bug-workaround.js"></script>
+
+<script src="files/modalForm.js"></script>
+<script src="files/arrows.js"></script>
+<script src="files/search.js"></script>
+
+</body>
+</html>

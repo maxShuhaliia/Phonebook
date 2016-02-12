@@ -1,0 +1,65 @@
+
+.bgColor {
+    background-color: aquamarine;
+
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.error-icon{
+    color : red;
+}
+
+.success-icon {
+    color : green;
+}
+
+ #search {
+    background-color: #B9F9F8;
+}
+.tableStyle {
+    margin-top: 70px;
+    position: relative;
+    z-index: 1;
+}
+.bgColorHeadTable {
+    background-color: #B9F9F8;
+}
+#closeBtn {
+    float:right;
+}
+
+.tooltip-inner{
+    white-space: pre;
+    background: red;
+}
+.newContact{
+    margin-left: 70px;
+}
+#cancelButtonCreate{
+    float:right;
+}
+#cancelButtonDelete{
+    float:right;
+}
+.navBttons{
+	font-family: Consolas;
+}

@@ -1,0 +1,11 @@
+.arrow:hover{
+    color:#d58512;
+    opacity: 1;
+}
+.arrow{
+    opacity: 0.3;
+}
+.checkedArrow{
+    color:#d58512;
+    opacity: 1;
+}
