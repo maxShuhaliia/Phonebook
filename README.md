@@ -26,7 +26,7 @@ IDEs : Spring Tool Suite (Eclipse), WebStorm;
 
 
 
-scripts for MySQL:
+                                                  scripts for MySQL:
 
 CREATE TABLE `user` (
    `login` varchar(15) NOT NULL,
